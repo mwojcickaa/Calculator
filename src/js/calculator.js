@@ -1,14 +1,14 @@
 
-const number1 = document.getElementById('number1');
-const number2 = document.getElementById('number2');
-const number3 = document.getElementById('number3');
-const number4 = document.getElementById('number4');
-const number5 = document.getElementById('number5');
-const number6 = document.getElementById('number6');
-const number7 = document.getElementById('number7');
-const number8 = document.getElementById('number8');
-const number9 = document.getElementById('number9');
-const number0 = document.getElementById('number0');
+const buttonNumberOne = document.getElementById('number1');
+const buttonNumberTwo = document.getElementById('number2');
+const buttonNumberThree = document.getElementById('number3');
+const buttonNumberFour = document.getElementById('number4');
+const buttonNumberFive = document.getElementById('number5');
+const buttonNumberSix = document.getElementById('number6');
+const buttonNumberSeven = document.getElementById('number7');
+const buttonNumberEight = document.getElementById('number8');
+const buttonNumberNine = document.getElementById('number9');
+const buttonNumberZero = document.getElementById('number0');
 
 const additionSign = document.getElementById('operator-addition');
 const subtractionSign = document.getElementById('operator-subtraction');
@@ -24,25 +24,25 @@ function myValue(value) {
     document.getElementById('currentNumber').innerHTML = currentNumber; "12 + 321"
 }
 
-number1.addEventListener("click", function() {myValue("1")})
+buttonNumberOne.addEventListener("click", function() {myValue("1")})
 
-number2.addEventListener("click", function() {myValue("2")})
+buttonNumberTwo.addEventListener("click", function() {myValue("2")})
 
-number3.addEventListener("click", function() {myValue("3")})
+buttonNumberThree.addEventListener("click", function() {myValue("3")})
 
-number4.addEventListener("click", function() {myValue("4")})
+buttonNumberFour.addEventListener("click", function() {myValue("4")})
 
-number5.addEventListener("click", function() {myValue("5")})
+buttonNumberFive.addEventListener("click", function() {myValue("5")})
 
-number6.addEventListener("click", function() {myValue("6")})
+buttonNumberSix.addEventListener("click", function() {myValue("6")})
 
-number7.addEventListener("click", function() {myValue("7")})
+buttonNumberSeven.addEventListener("click", function() {myValue("7")})
 
-number8.addEventListener("click", function() {myValue("8")})
+buttonNumberEight.addEventListener("click", function() {myValue("8")})
 
-number9.addEventListener("click", function() {myValue("9")})
+buttonNumberNine.addEventListener("click", function() {myValue("9")})
 
-number0.addEventListener("click", function() {myValue("0")})
+buttonNumberZero.addEventListener("click", function() {myValue("0")})
 
 additionSign.addEventListener("click", function() {myValue("+")})
 subtractionSign.addEventListener("click", function() {myValue("-")})
