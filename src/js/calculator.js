@@ -72,6 +72,8 @@ equalsSign.addEventListener("click", function () {
     }
 })
 
-
+clearSign.addEventListener("click", function () {
+    document.getElementById('currentNumber').innerHTML = "";
+})
 
 
