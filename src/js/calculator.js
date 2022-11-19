@@ -16,12 +16,27 @@ const multiplicationSign = document.getElementById('operator-multiplication');
 const divisionSign = document.getElementById('operator-division');
 const clearSign = document.getElementById('clear');
 const equalsSign = document.getElementById('operator-equals');
-const currentNumber = document.getElementById('currentNumber');
+
+let firstValue;
+let secondValue;
+let operator; 
 
 function myValue(value) {
     let currentNumber = document.getElementById('currentNumber').innerHTML;
     currentNumber = currentNumber + value
-    document.getElementById('currentNumber').innerHTML = currentNumber; "12 + 321"
+    document.getElementById('currentNumber').innerHTML = currentNumber;
+    if (operator === undefined) {
+        firstValue = currentNumber
+    } else {
+        secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
+        console.log(secondValue)
+    }
+}
+function myOperator(localOperator) {
+    let currentNumber = document.getElementById('currentNumber').innerHTML;
+    currentNumber = currentNumber + localOperator
+    document.getElementById('currentNumber').innerHTML = currentNumber;
+    operator = "+"
 }
 
 buttonNumberOne.addEventListener("click", function() {myValue("1")})
@@ -44,11 +59,18 @@ buttonNumberNine.addEventListener("click", function() {myValue("9")})
 
 buttonNumberZero.addEventListener("click", function() {myValue("0")})
 
-additionSign.addEventListener("click", function() {myValue("+")})
+additionSign.addEventListener("click", function() {myOperator("+")})
 subtractionSign.addEventListener("click", function() {myValue("-")})
 multiplicationSign.addEventListener("click", function() {myValue("*")})
 divisionSign.addEventListener("click", function() {myValue("/")})
 
+equalsSign.addEventListener("click", function () { 
+    if (operator === "+") {
+        let result = Number(firstValue) + Number(secondValue)
+        document.getElementById('currentNumber').innerHTML = "";
+        document.getElementById('currentNumber').innerHTML = result;
+    }
+})
 
 
 
