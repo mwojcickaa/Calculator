@@ -1,4 +1,3 @@
-
 const buttonNumberOne = document.getElementById('number1');
 const buttonNumberTwo = document.getElementById('number2');
 const buttonNumberThree = document.getElementById('number3');
@@ -29,7 +28,6 @@ function myValue(value) {
         firstValue = currentNumber
     } else {
         secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
-        console.log(secondValue)
     }
 }
 function myOperator(localOperator) {
@@ -60,20 +58,25 @@ buttonNumberNine.addEventListener("click", function() {myValue("9")})
 buttonNumberZero.addEventListener("click", function() {myValue("0")})
 
 additionSign.addEventListener("click", function() {myOperator("+")})
-subtractionSign.addEventListener("click", function() {myValue("-")})
-multiplicationSign.addEventListener("click", function() {myValue("*")})
-divisionSign.addEventListener("click", function() {myValue("/")})
+subtractionSign.addEventListener("click", function() {myOperator("-")})
+multiplicationSign.addEventListener("click", function() {myOperator("*")})
+divisionSign.addEventListener("click", function() {myOperator("/")})
 
-equalsSign.addEventListener("click", function () { 
-    if (operator === "+") {
-        let result = Number(firstValue) + Number(secondValue)
-        document.getElementById('currentNumber').innerHTML = "";
-        document.getElementById('currentNumber').innerHTML = result;
+equalsSign.addEventListener("click", function () {
+    if (firstValue != undefined, secondValue != undefined) {
+        if (operator === "+") {
+            let result = Number(firstValue) + Number(secondValue)
+            document.getElementById('currentNumber').innerHTML = "";
+            document.getElementById('currentNumber').innerHTML = result;
+        }
     }
 })
 
 clearSign.addEventListener("click", function () {
     document.getElementById('currentNumber').innerHTML = "";
+    firstValue = undefined
+    secondValue = undefined
+    operator = undefined
 })
 
 
