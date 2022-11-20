@@ -34,7 +34,7 @@ function myOperator(localOperator) {
     let currentNumber = document.getElementById('currentNumber').innerHTML;
     currentNumber = currentNumber + localOperator
     document.getElementById('currentNumber').innerHTML = currentNumber;
-    operator = "+"
+    operator = localOperator
 }
 
 buttonNumberOne.addEventListener("click", function() {myValue("1")})
@@ -64,8 +64,23 @@ divisionSign.addEventListener("click", function() {myOperator("/")})
 
 equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
-        if (operator === "+") {
+        if (operator === "+") {      
             let result = Number(firstValue) + Number(secondValue)
+            document.getElementById('currentNumber').innerHTML = "";
+            document.getElementById('currentNumber').innerHTML = result;
+        }
+        else if (operator === "-") {
+            let result = Number(firstValue) - Number(secondValue)
+            document.getElementById('currentNumber').innerHTML = "";
+            document.getElementById('currentNumber').innerHTML = result;
+        } 
+        else if (operator === "*") {
+            let result = Number(firstValue) * Number(secondValue)
+            document.getElementById('currentNumber').innerHTML = "";
+            document.getElementById('currentNumber').innerHTML = result;
+        }
+        else if (operator === "/") {
+            let result = Number(firstValue) / Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         }
