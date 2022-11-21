@@ -8,6 +8,8 @@ const buttonNumberSeven = document.getElementById('number7');
 const buttonNumberEight = document.getElementById('number8');
 const buttonNumberNine = document.getElementById('number9');
 const buttonNumberZero = document.getElementById('number0');
+const buttonDot = document.getElementById('dot')
+
 
 const additionSign = document.getElementById('operator-addition');
 const subtractionSign = document.getElementById('operator-subtraction');
@@ -56,6 +58,8 @@ buttonNumberEight.addEventListener("click", function() {myValue("8")})
 buttonNumberNine.addEventListener("click", function() {myValue("9")})
 
 buttonNumberZero.addEventListener("click", function() {myValue("0")})
+
+buttonDot.addEventListener("click", function() {myValue(".")})
 
 additionSign.addEventListener("click", function() {myOperator("+")})
 subtractionSign.addEventListener("click", function() {myOperator("-")})
