@@ -25,12 +25,18 @@ let operator;
 function myValue(value) {
     let currentNumber = document.getElementById('currentNumber').innerHTML;
     currentNumber = currentNumber + value
-    document.getElementById('currentNumber').innerHTML = currentNumber;
     if (operator === undefined) {
         firstValue = currentNumber
-    } else {
+    } 
+    else {
         secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
+        if (operator == "/", secondValue == 0) {
+            alert("Błąd operacji. Nie można dzielić przez 0!")
+            secondValue = undefined
+            currentNumber = currentNumber.substring(0, currentNumber.length - 1);
+        }
     }
+    document.getElementById('currentNumber').innerHTML = currentNumber;
 }
 function myOperator(localOperator) {
     let currentNumber = document.getElementById('currentNumber').innerHTML;
@@ -57,7 +63,7 @@ buttonNumberEight.addEventListener("click", function() {myValue("8")})
 
 buttonNumberNine.addEventListener("click", function() {myValue("9")})
 
-buttonNumberZero.addEventListener("click", function() {myValue("0")})
+buttonNumberZero.addEventListener("click", function() {myValue("0")},)
 
 buttonDot.addEventListener("click", function() {myValue(".")})
 
