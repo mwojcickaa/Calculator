@@ -20,26 +20,34 @@ const equalsSign = document.getElementById('operator-equals');
 
 let firstValue;
 let secondValue;
-let operator; 
+let operator;
+let result;
 
 function myValue(value) {
-    let currentNumber = document.getElementById('currentNumber').innerHTML;
-    currentNumber = currentNumber + value
-    if (operator === undefined) {
-        firstValue = currentNumber
-    } 
-    else {
-        secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
-        if (operator == "/", secondValue == 0) {
-            alert("Błąd operacji. Nie można dzielić przez 0!")
-            secondValue = undefined
-            currentNumber = currentNumber.substring(0, currentNumber.length - 1);
+    if (result === undefined) {
+        let currentNumber = document.getElementById('currentNumber').innerHTML; 
+        currentNumber = currentNumber + value
+        if (operator === undefined) {
+            firstValue = currentNumber
+        } 
+        else {
+            secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
+            if (operator == "/", secondValue == 0) {
+                alert("Błąd operacji. Nie można dzielić przez 0!")
+                secondValue = undefined
+                currentNumber = currentNumber.substring(0, currentNumber.length - 1);
+            }
         }
+        document.getElementById('currentNumber').innerHTML = currentNumber;
+    } else {
+        result = undefined
+        document.getElementById('currentNumber').innerHTML = value;
+        firstValue = value
     }
-    document.getElementById('currentNumber').innerHTML = currentNumber;
 }
+
 function myOperator(localOperator) {
-    let currentNumber = document.getElementById('currentNumber').innerHTML;
+    let currentNumber = document.getElementById('currentNumber').innerHTML; 
     currentNumber = currentNumber + localOperator
     document.getElementById('currentNumber').innerHTML = currentNumber;
     operator = localOperator
@@ -75,22 +83,26 @@ divisionSign.addEventListener("click", function() {myOperator("/")})
 equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
         if (operator === "+") {      
-            let result = Number(firstValue) + Number(secondValue)
+            result = Number(firstValue) + Number(secondValue)
+            console.log(firstValue)
+            console.log(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         }
         else if (operator === "-") {
-            let result = Number(firstValue) - Number(secondValue)
+            result = Number(firstValue) - Number(secondValue)
+            // console.log(firstValue)
+            // console.log(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         } 
         else if (operator === "*") {
-            let result = Number(firstValue) * Number(secondValue)
+            result = Number(firstValue) * Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         }
         else if (operator === "/") {
-            let result = Number(firstValue) / Number(secondValue)
+            result = Number(firstValue) / Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         }
