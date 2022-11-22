@@ -84,15 +84,11 @@ equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
         if (operator === "+") {      
             result = Number(firstValue) + Number(secondValue)
-            console.log(firstValue)
-            console.log(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         }
         else if (operator === "-") {
             result = Number(firstValue) - Number(secondValue)
-            // console.log(firstValue)
-            // console.log(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
         } 
