@@ -39,18 +39,29 @@ function myValue(value) {
             }
         }
         document.getElementById('currentNumber').innerHTML = currentNumber;
-    } else {
+        
+    } 
+     else {
         result = undefined
         document.getElementById('currentNumber').innerHTML = value;
-        firstValue = value
+        firstValue = value 
     }
 }
 
 function myOperator(localOperator) {
     let currentNumber = document.getElementById('currentNumber').innerHTML; 
+    if (currentNumber === "") {
+        firstValue = 0
+        currentNumber = firstValue
+    }
+    
     currentNumber = currentNumber + localOperator
     document.getElementById('currentNumber').innerHTML = currentNumber;
     operator = localOperator
+    if (result !=undefined) {
+        firstValue = result
+        result = undefined
+    }
 }
 
 buttonNumberOne.addEventListener("click", function() {myValue("1")})
