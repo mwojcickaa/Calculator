@@ -23,77 +23,88 @@ let secondValue;
 let operator;
 let result;
 
-function myValue(value) {
-    if (result === undefined) {
-        let currentNumber = document.getElementById('currentNumber').innerHTML; 
-        currentNumber = currentNumber + value
-        if (operator === undefined) {
-            firstValue = currentNumber
-        } 
-        else {
-            secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
-            if (operator == "/", secondValue == 0) {
-                alert("Błąd operacji. Nie można dzielić przez 0!")
-                secondValue = undefined
-                currentNumber = currentNumber.substring(0, currentNumber.length - 1);
-            }
+function myValueAndOperator(value) {
+    valueOperatorArray.push(value)
+    document.getElementById("currentNumber").innerHTML = value;
+    if (typeof value === "string") {
+        if (typeof valueOperatorArray[valueOperatorArray.length - 2] === "string") {
+            valueOperatorArray.splice(valueOperatorArray.length - 2, 1, valueOperatorArray[valueOperatorArray.length - 1])
+            valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
         }
-        document.getElementById('currentNumber').innerHTML = currentNumber;
-        
-    } 
-     else {
-        result = undefined
-        document.getElementById('currentNumber').innerHTML = value;
-        firstValue = value 
     }
 }
 
-function myOperator(localOperator) {
-    let currentNumber = document.getElementById('currentNumber').innerHTML; 
-    if (currentNumber === "") {
-        firstValue = 0
-        currentNumber = firstValue
-    }
-    
-    currentNumber = currentNumber + localOperator
-    document.getElementById('currentNumber').innerHTML = currentNumber;
-    operator = localOperator
-    if (result !=undefined) {
-        firstValue = result
-        result = undefined
-    }
-}
+// function myValue(value) {
+//     if (result === undefined) {
+//         let currentNumber = document.getElementById('currentNumber').innerHTML; 
+//         currentNumber = currentNumber + value
+//         if (operator === undefined) {
+//             firstValue = currentNumber
+//         } 
+//         else {
+//             secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
+//             if (operator == "/", secondValue == 0) {
+//                 alert("Błąd operacji. Nie można dzielić przez 0!")
+//                 secondValue = undefined
+//                 currentNumber = currentNumber.substring(0, currentNumber.length - 1);
+//             }
+//         }
+//         document.getElementById('currentNumber').innerHTML = currentNumber;
 
-buttonNumberOne.addEventListener("click", function() {myValue("1")})
+//     } 
+//      else {
+//         result = undefined
+//         document.getElementById('currentNumber').innerHTML = value;
+//         firstValue = value 
+//     }
+// }
 
-buttonNumberTwo.addEventListener("click", function() {myValue("2")})
+// function myOperator(localOperator) {
+//     let currentNumber = document.getElementById('currentNumber').innerHTML; 
+//     if (currentNumber === "") {
+//         firstValue = 0
+//         currentNumber = firstValue
+//     }
 
-buttonNumberThree.addEventListener("click", function() {myValue("3")})
+//     currentNumber = currentNumber + localOperator
+//     document.getElementById('currentNumber').innerHTML = currentNumber;
+//     operator = localOperator
+//     if (result !=undefined) {
+//         firstValue = result
+//         result = undefined
+//     }
+// }
 
-buttonNumberFour.addEventListener("click", function() {myValue("4")})
+buttonNumberOne.addEventListener("click", function () { myValue("1") })
 
-buttonNumberFive.addEventListener("click", function() {myValue("5")})
+buttonNumberTwo.addEventListener("click", function () { myValue("2") })
 
-buttonNumberSix.addEventListener("click", function() {myValue("6")})
+buttonNumberThree.addEventListener("click", function () { myValue("3") })
 
-buttonNumberSeven.addEventListener("click", function() {myValue("7")})
+buttonNumberFour.addEventListener("click", function () { myValue("4") })
 
-buttonNumberEight.addEventListener("click", function() {myValue("8")})
+buttonNumberFive.addEventListener("click", function () { myValue("5") })
 
-buttonNumberNine.addEventListener("click", function() {myValue("9")})
+buttonNumberSix.addEventListener("click", function () { myValue("6") })
 
-buttonNumberZero.addEventListener("click", function() {myValue("0")},)
+buttonNumberSeven.addEventListener("click", function () { myValue("7") })
 
-buttonDot.addEventListener("click", function() {myValue(".")})
+buttonNumberEight.addEventListener("click", function () { myValue("8") })
 
-additionSign.addEventListener("click", function() {myOperator("+")})
-subtractionSign.addEventListener("click", function() {myOperator("-")})
-multiplicationSign.addEventListener("click", function() {myOperator("*")})
-divisionSign.addEventListener("click", function() {myOperator("/")})
+buttonNumberNine.addEventListener("click", function () { myValue("9") })
+
+buttonNumberZero.addEventListener("click", function () { myValue("0") },)
+
+buttonDot.addEventListener("click", function () { myValue(".") })
+
+additionSign.addEventListener("click", function () { myOperator("+") })
+subtractionSign.addEventListener("click", function () { myOperator("-") })
+multiplicationSign.addEventListener("click", function () { myOperator("*") })
+divisionSign.addEventListener("click", function () { myOperator("/") })
 
 equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
-        if (operator === "+") {      
+        if (operator === "+") {
             result = Number(firstValue) + Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
@@ -102,7 +113,7 @@ equalsSign.addEventListener("click", function () {
             result = Number(firstValue) - Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
             document.getElementById('currentNumber').innerHTML = result;
-        } 
+        }
         else if (operator === "*") {
             result = Number(firstValue) * Number(secondValue)
             document.getElementById('currentNumber').innerHTML = "";
