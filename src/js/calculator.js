@@ -23,15 +23,45 @@ let secondValue;
 let operator;
 let result;
 
+const valueOperatorArray = [];
+
 function myValueAndOperator(value) {
-    valueOperatorArray.push(value)
-    document.getElementById("currentNumber").innerHTML = value;
+    // valueOperatorArray.push(value)
     if (typeof value === "string") {
-        if (typeof valueOperatorArray[valueOperatorArray.length - 2] === "string") {
-            valueOperatorArray.splice(valueOperatorArray.length - 2, 1, valueOperatorArray[valueOperatorArray.length - 1])
-            valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
+        if (typeof valueOperatorArray[valueOperatorArray.length - 1] === "string") {
+            valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
+        } else {
+            valueOperatorArray.push(value)
+        }
+    } else {
+        if (typeof valueOperatorArray[valueOperatorArray.length - 1] === "number") {
+            let text = value.toString()
+            let currentNumber = valueOperatorArray[valueOperatorArray.length - 1].toString() + value.toString()
+            valueOperatorArray[valueOperatorArray.length - 1] = Number(currentNumber)
+        } else {
+            valueOperatorArray.push(value)
         }
     }
+
+    let currentNumber = valueOperatorArray.join('')
+    document.getElementById('currentNumber').innerHTML = currentNumber;
+
+
+    // if (result === undefined) {
+    //     let currentNumber = document.getElementById('currentNumber').innerHTML;
+    //     currentNumber = currentNumber + value
+    //     if (typeof value === "string") {
+    //         value = currentNumber + value
+
+    //         valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
+    //         // console.log(valueOperatorArray)
+    //     } else {
+    //         // value = currentNumber.replace([valueOperatorArray.length - 2], '').replace([valueOperatorArray.length - 1])
+    //         // valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
+    //     }
+    //     valueOperatorArray.push(value)
+
+    // }
 }
 
 // function myValue(value) {
@@ -75,32 +105,32 @@ function myValueAndOperator(value) {
 //     }
 // }
 
-buttonNumberOne.addEventListener("click", function () { myValue("1") })
+buttonNumberOne.addEventListener("click", function () { myValueAndOperator(1) })
 
-buttonNumberTwo.addEventListener("click", function () { myValue("2") })
+buttonNumberTwo.addEventListener("click", function () { myValueAndOperator(2) })
 
-buttonNumberThree.addEventListener("click", function () { myValue("3") })
+buttonNumberThree.addEventListener("click", function () { myValueAndOperator(3) })
 
-buttonNumberFour.addEventListener("click", function () { myValue("4") })
+buttonNumberFour.addEventListener("click", function () { myValueAndOperator(4) })
 
-buttonNumberFive.addEventListener("click", function () { myValue("5") })
+buttonNumberFive.addEventListener("click", function () { myValueAndOperator(5) })
 
-buttonNumberSix.addEventListener("click", function () { myValue("6") })
+buttonNumberSix.addEventListener("click", function () { myValueAndOperator(6) })
 
-buttonNumberSeven.addEventListener("click", function () { myValue("7") })
+buttonNumberSeven.addEventListener("click", function () { myValueAndOperator(7) })
 
-buttonNumberEight.addEventListener("click", function () { myValue("8") })
+buttonNumberEight.addEventListener("click", function () { myValueAndOperator(8) })
 
-buttonNumberNine.addEventListener("click", function () { myValue("9") })
+buttonNumberNine.addEventListener("click", function () { myValueAndOperator(9) })
 
-buttonNumberZero.addEventListener("click", function () { myValue("0") },)
+buttonNumberZero.addEventListener("click", function () { myValueAndOperator(0) },)
 
-buttonDot.addEventListener("click", function () { myValue(".") })
+buttonDot.addEventListener("click", function () { myValueAndOperator(".") })
 
-additionSign.addEventListener("click", function () { myOperator("+") })
-subtractionSign.addEventListener("click", function () { myOperator("-") })
-multiplicationSign.addEventListener("click", function () { myOperator("*") })
-divisionSign.addEventListener("click", function () { myOperator("/") })
+additionSign.addEventListener("click", function () { myValueAndOperator("+") })
+subtractionSign.addEventListener("click", function () { myValueAndOperator("-") })
+multiplicationSign.addEventListener("click", function () { myValueAndOperator("*") })
+divisionSign.addEventListener("click", function () { myValueAndOperator("/") })
 
 equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
