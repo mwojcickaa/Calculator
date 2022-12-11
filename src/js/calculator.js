@@ -32,6 +32,11 @@ function myValueAndOperator(value) {
         } else {
             valueOperatorArray.push(value)
         }
+
+        if (typeof valueOperatorArray[0] === "string") {
+            valueOperatorArray[0] = "0"
+            valueOperatorArray[1] = value;
+        }
     } else {
         if (typeof valueOperatorArray[valueOperatorArray.length - 1] === "number") {
             let text = value.toString()
@@ -41,10 +46,10 @@ function myValueAndOperator(value) {
             valueOperatorArray.push(value)
         }
     }
+    let currentNumber = valueOperatorArray.join('')
+    document.getElementById('currentNumber').innerHTML = currentNumber;
 }
 
-let currentNumber = valueOperatorArray.join('')
-document.getElementById('currentNumber').innerHTML = currentNumber;
 
 buttonNumberOne.addEventListener("click", function () { myValueAndOperator(1) })
 
