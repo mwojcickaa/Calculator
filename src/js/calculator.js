@@ -46,122 +46,63 @@ function myValueAndOperator(value) {
     let currentNumber = valueOperatorArray.join('')
     document.getElementById('currentNumber').innerHTML = currentNumber;
 
+    buttonNumberOne.addEventListener("click", function () { myValueAndOperator(1) })
 
-    // if (result === undefined) {
-    //     let currentNumber = document.getElementById('currentNumber').innerHTML;
-    //     currentNumber = currentNumber + value
-    //     if (typeof value === "string") {
-    //         value = currentNumber + value
+    buttonNumberTwo.addEventListener("click", function () { myValueAndOperator(2) })
 
-    //         valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
-    //         // console.log(valueOperatorArray)
-    //     } else {
-    //         // value = currentNumber.replace([valueOperatorArray.length - 2], '').replace([valueOperatorArray.length - 1])
-    //         // valueOperatorArray.splice(valueOperatorArray.length - 1, 1)
-    //     }
-    //     valueOperatorArray.push(value)
+    buttonNumberThree.addEventListener("click", function () { myValueAndOperator(3) })
 
-    // }
-}
+    buttonNumberFour.addEventListener("click", function () { myValueAndOperator(4) })
 
-// function myValue(value) {
-//     if (result === undefined) {
-//         let currentNumber = document.getElementById('currentNumber').innerHTML; 
-//         currentNumber = currentNumber + value
-//         if (operator === undefined) {
-//             firstValue = currentNumber
-//         } 
-//         else {
-//             secondValue = currentNumber.replace(firstValue, '').replace(operator, '')
-//             if (operator == "/", secondValue == 0) {
-//                 alert("Błąd operacji. Nie można dzielić przez 0!")
-//                 secondValue = undefined
-//                 currentNumber = currentNumber.substring(0, currentNumber.length - 1);
-//             }
-//         }
-//         document.getElementById('currentNumber').innerHTML = currentNumber;
+    buttonNumberFive.addEventListener("click", function () { myValueAndOperator(5) })
 
-//     } 
-//      else {
-//         result = undefined
-//         document.getElementById('currentNumber').innerHTML = value;
-//         firstValue = value 
-//     }
-// }
+    buttonNumberSix.addEventListener("click", function () { myValueAndOperator(6) })
 
-// function myOperator(localOperator) {
-//     let currentNumber = document.getElementById('currentNumber').innerHTML; 
-//     if (currentNumber === "") {
-//         firstValue = 0
-//         currentNumber = firstValue
-//     }
+    buttonNumberSeven.addEventListener("click", function () { myValueAndOperator(7) })
 
-//     currentNumber = currentNumber + localOperator
-//     document.getElementById('currentNumber').innerHTML = currentNumber;
-//     operator = localOperator
-//     if (result !=undefined) {
-//         firstValue = result
-//         result = undefined
-//     }
-// }
+    buttonNumberEight.addEventListener("click", function () { myValueAndOperator(8) })
 
-buttonNumberOne.addEventListener("click", function () { myValueAndOperator(1) })
+    buttonNumberNine.addEventListener("click", function () { myValueAndOperator(9) })
 
-buttonNumberTwo.addEventListener("click", function () { myValueAndOperator(2) })
+    buttonNumberZero.addEventListener("click", function () { myValueAndOperator(0) },)
 
-buttonNumberThree.addEventListener("click", function () { myValueAndOperator(3) })
+    buttonDot.addEventListener("click", function () { myValueAndOperator(".") })
 
-buttonNumberFour.addEventListener("click", function () { myValueAndOperator(4) })
+    additionSign.addEventListener("click", function () { myValueAndOperator("+") })
+    subtractionSign.addEventListener("click", function () { myValueAndOperator("-") })
+    multiplicationSign.addEventListener("click", function () { myValueAndOperator("*") })
+    divisionSign.addEventListener("click", function () { myValueAndOperator("/") })
 
-buttonNumberFive.addEventListener("click", function () { myValueAndOperator(5) })
-
-buttonNumberSix.addEventListener("click", function () { myValueAndOperator(6) })
-
-buttonNumberSeven.addEventListener("click", function () { myValueAndOperator(7) })
-
-buttonNumberEight.addEventListener("click", function () { myValueAndOperator(8) })
-
-buttonNumberNine.addEventListener("click", function () { myValueAndOperator(9) })
-
-buttonNumberZero.addEventListener("click", function () { myValueAndOperator(0) },)
-
-buttonDot.addEventListener("click", function () { myValueAndOperator(".") })
-
-additionSign.addEventListener("click", function () { myValueAndOperator("+") })
-subtractionSign.addEventListener("click", function () { myValueAndOperator("-") })
-multiplicationSign.addEventListener("click", function () { myValueAndOperator("*") })
-divisionSign.addEventListener("click", function () { myValueAndOperator("/") })
-
-equalsSign.addEventListener("click", function () {
-    if (firstValue != undefined, secondValue != undefined) {
-        if (operator === "+") {
-            result = Number(firstValue) + Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
+    equalsSign.addEventListener("click", function () {
+        if (firstValue != undefined, secondValue != undefined) {
+            if (operator === "+") {
+                result = Number(firstValue) + Number(secondValue)
+                document.getElementById('currentNumber').innerHTML = "";
+                document.getElementById('currentNumber').innerHTML = result;
+            }
+            else if (operator === "-") {
+                result = Number(firstValue) - Number(secondValue)
+                document.getElementById('currentNumber').innerHTML = "";
+                document.getElementById('currentNumber').innerHTML = result;
+            }
+            else if (operator === "*") {
+                result = Number(firstValue) * Number(secondValue)
+                document.getElementById('currentNumber').innerHTML = "";
+                document.getElementById('currentNumber').innerHTML = result;
+            }
+            else if (operator === "/") {
+                result = Number(firstValue) / Number(secondValue)
+                document.getElementById('currentNumber').innerHTML = "";
+                document.getElementById('currentNumber').innerHTML = result;
+            }
         }
-        else if (operator === "-") {
-            result = Number(firstValue) - Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
-        }
-        else if (operator === "*") {
-            result = Number(firstValue) * Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
-        }
-        else if (operator === "/") {
-            result = Number(firstValue) / Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
-        }
-    }
-})
+    })
 
-clearSign.addEventListener("click", function () {
-    document.getElementById('currentNumber').innerHTML = "";
-    firstValue = undefined
-    secondValue = undefined
-    operator = undefined
-})
+    clearSign.addEventListener("click", function () {
+        document.getElementById('currentNumber').innerHTML = "";
+        firstValue = undefined
+        secondValue = undefined
+        operator = undefined
+    })
 
 
