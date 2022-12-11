@@ -23,7 +23,7 @@ let secondValue;
 let operator;
 let result;
 
-const valueOperatorArray = [];
+let valueOperatorArray = [];
 
 function myValueAndOperator(value) {
     if (typeof value === "string") {
@@ -105,9 +105,7 @@ equalsSign.addEventListener("click", function () {
 
 clearSign.addEventListener("click", function () {
     document.getElementById('currentNumber').innerHTML = "";
-    firstValue = undefined
-    secondValue = undefined
-    operator = undefined
+    valueOperatorArray = [];
 })
 
 
