@@ -1,55 +1,68 @@
-const buttonNumberOne = document.getElementById('number1');
-const buttonNumberTwo = document.getElementById('number2');
-const buttonNumberThree = document.getElementById('number3');
-const buttonNumberFour = document.getElementById('number4');
-const buttonNumberFive = document.getElementById('number5');
-const buttonNumberSix = document.getElementById('number6');
-const buttonNumberSeven = document.getElementById('number7');
-const buttonNumberEight = document.getElementById('number8');
-const buttonNumberNine = document.getElementById('number9');
-const buttonNumberZero = document.getElementById('number0');
+const buttonNumberOne = document.getElementById('number1')
+const buttonNumberTwo = document.getElementById('number2')
+const buttonNumberThree = document.getElementById('number3')
+const buttonNumberFour = document.getElementById('number4')
+const buttonNumberFive = document.getElementById('number5')
+const buttonNumberSix = document.getElementById('number6')
+const buttonNumberSeven = document.getElementById('number7')
+const buttonNumberEight = document.getElementById('number8')
+const buttonNumberNine = document.getElementById('number9')
+const buttonNumberZero = document.getElementById('number0')
 const buttonDot = document.getElementById('dot')
 
+const additionSign = document.getElementById('operator-addition')
+const subtractionSign = document.getElementById('operator-subtraction')
+const multiplicationSign = document.getElementById('operator-multiplication')
+const divisionSign = document.getElementById('operator-division')
+const clearSign = document.getElementById('clear')
+const equalsSign = document.getElementById('operator-equals')
 
-const additionSign = document.getElementById('operator-addition');
-const subtractionSign = document.getElementById('operator-subtraction');
-const multiplicationSign = document.getElementById('operator-multiplication');
-const divisionSign = document.getElementById('operator-division');
-const clearSign = document.getElementById('clear');
-const equalsSign = document.getElementById('operator-equals');
+let firstValue
+let secondValue
+let operator
+let result
 
-let firstValue;
-let secondValue;
-let operator;
-let result;
-
-let valueOperatorArray = [];
-
+let valueOperatorArray = []
 function myValueAndOperator(value) {
-    if (typeof value === "string") {
-        if (typeof valueOperatorArray[valueOperatorArray.length - 1] === "string") {
-            valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
-        } else {
-            valueOperatorArray.push(value)
-        }
-
-        if (typeof valueOperatorArray[0] === "string") {
+    if (typeof value === "string" && value != ".") {
+        if (isNaN(valueOperatorArray[0])) {
             valueOperatorArray[0] = "0"
-            valueOperatorArray[1] = value;
+            valueOperatorArray[1] = value
         }
-    } else {
-        if (typeof valueOperatorArray[valueOperatorArray.length - 1] === "number") {
-            let text = value.toString()
-            let currentNumber = valueOperatorArray[valueOperatorArray.length - 1].toString() + value.toString()
-            valueOperatorArray[valueOperatorArray.length - 1] = Number(currentNumber)
-        } else {
-            valueOperatorArray.push(value)
+        if (isNaN(valueOperatorArray[valueOperatorArray.length - 1])) {
+            valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
+            valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
+        }
+        if (valueOperatorArray[valueOperatorArray.length - 1].includes(".") && valueOperatorArray[valueOperatorArray.length - 1].slice(-1) === ".") {
+            let str = document.getElementById('currentNumber').innerHTML
+            let res = valueOperatorArray[valueOperatorArray.length - 1].replace(".", "")
+            valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
+            valueOperatorArray.push(res)
+        }
+        valueOperatorArray.push(value)
+    }
+    else {
+        if (!isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
+            if (!(value === "." && valueOperatorArray[valueOperatorArray.length - 1].includes("."))) {
+                let convertedValue = value.toString()
+                let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
+                valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
+            }
+        }
+        else {
+            if (value === "." && isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
+                valueOperatorArray.push("0" + value)
+            }
+            else {
+                let text = value.toString()
+                let convertedValue = value.toString()
+                valueOperatorArray.push(convertedValue)
+            }
         }
     }
     let currentNumber = valueOperatorArray.join('')
-    document.getElementById('currentNumber').innerHTML = currentNumber;
+    document.getElementById('currentNumber').innerHTML = currentNumber
 }
-
 
 buttonNumberOne.addEventListener("click", function () { myValueAndOperator(1) })
 
@@ -82,30 +95,30 @@ equalsSign.addEventListener("click", function () {
     if (firstValue != undefined, secondValue != undefined) {
         if (operator === "+") {
             result = Number(firstValue) + Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
+            document.getElementById('currentNumber').innerHTML = ""
+            document.getElementById('currentNumber').innerHTML = result
         }
         else if (operator === "-") {
             result = Number(firstValue) - Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
+            document.getElementById('currentNumber').innerHTML = ""
+            document.getElementById('currentNumber').innerHTML = result
         }
         else if (operator === "*") {
             result = Number(firstValue) * Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
+            document.getElementById('currentNumber').innerHTML = ""
+            document.getElementById('currentNumber').innerHTML = result
         }
         else if (operator === "/") {
             result = Number(firstValue) / Number(secondValue)
-            document.getElementById('currentNumber').innerHTML = "";
-            document.getElementById('currentNumber').innerHTML = result;
+            document.getElementById('currentNumber').innerHTML = ""
+            document.getElementById('currentNumber').innerHTML = result
         }
     }
 })
 
 clearSign.addEventListener("click", function () {
-    document.getElementById('currentNumber').innerHTML = "";
-    valueOperatorArray = [];
+    document.getElementById('currentNumber').innerHTML = ""
+    valueOperatorArray = []
 })
 
 
