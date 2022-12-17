@@ -95,37 +95,29 @@ equalsSign.addEventListener("click", function () { myResult() })
 
 function myResult() {
     let arrayLength = valueOperatorArray.length
-
     if (arrayLength != 0) {
         while (arrayLength != 1) {
-            if (valueOperatorArray[1] === "+") {
+            if (valueOperatorArray.includes("*")) {
+                let result = Number(valueOperatorArray[valueOperatorArray.indexOf("*") - 1]) * Number(valueOperatorArray[valueOperatorArray.indexOf("*") + 1])
+                let convertedToString = result.toString()
+                valueOperatorArray.splice((valueOperatorArray.indexOf("*") - 1), 3, convertedToString)
+            }
+            else if (valueOperatorArray.includes("/")) {
+                let result = Number(valueOperatorArray[valueOperatorArray.indexOf("/") - 1]) / Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1])
+                let convertedToString = result.toString()
+                valueOperatorArray.splice((valueOperatorArray.indexOf("/") - 1), 3, convertedToString)
+            }
+            else if (valueOperatorArray[1] === "+") {
                 let result = Number(valueOperatorArray[0]) + Number(valueOperatorArray[2])
                 valueOperatorArray[0] = result.toString()
                 valueOperatorArray.splice(1, 2)
-                valueOperatorArray.push()
-                arrayLength = valueOperatorArray.length
             }
-            if (valueOperatorArray[1] === "-") {
+            else if (valueOperatorArray[1] === "-") {
                 let result = Number(valueOperatorArray[0]) - Number(valueOperatorArray[2])
                 valueOperatorArray[0] = result.toString()
                 valueOperatorArray.splice(1, 2)
-                valueOperatorArray.push()
-                arrayLength = valueOperatorArray.length
             }
-            if (valueOperatorArray[1] === "*") {
-                let result = Number(valueOperatorArray[0]) * Number(valueOperatorArray[2])
-                valueOperatorArray[0] = result.toString()
-                valueOperatorArray.splice(1, 2)
-                valueOperatorArray.push()
-                arrayLength = valueOperatorArray.length
-            }
-            if (valueOperatorArray[1] === "/") {
-                let result = Number(valueOperatorArray[0]) / Number(valueOperatorArray[2])
-                valueOperatorArray[0] = result.toString()
-                valueOperatorArray.splice(1, 2)
-                valueOperatorArray.push()
-                arrayLength = valueOperatorArray.length
-            }
+            arrayLength = valueOperatorArray.length
         }
         document.getElementById('currentNumber').innerHTML = valueOperatorArray
     }
