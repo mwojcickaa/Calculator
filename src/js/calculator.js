@@ -33,7 +33,6 @@ function myValueAndOperator(value) {
             valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
             valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
         }
-        console.log(typeof valueOperatorArray)
         if (valueOperatorArray[valueOperatorArray.length - 1].includes(".") && valueOperatorArray[valueOperatorArray.length - 1].slice(-1) === ".") {
             let str = document.getElementById('currentNumber').innerHTML
             let res = valueOperatorArray[valueOperatorArray.length - 1].replace(".", "")
@@ -93,10 +92,7 @@ multiplicationSign.addEventListener("click", function () { myValueAndOperator("*
 divisionSign.addEventListener("click", function () { myValueAndOperator("/") })
 
 equalsSign.addEventListener("click", function () { myResult() })
-// 3 + 2 + 1 + 2
-// 5 + 1 + 2
-// 6 + 2
-// 8
+
 function myResult() {
     let arrayLength = valueOperatorArray.length
 
@@ -108,39 +104,32 @@ function myResult() {
                 valueOperatorArray.splice(1, 2)
                 valueOperatorArray.push()
                 arrayLength = valueOperatorArray.length
-                console.log(valueOperatorArray)
+            }
+            if (valueOperatorArray[1] === "-") {
+                let result = Number(valueOperatorArray[0]) - Number(valueOperatorArray[2])
+                valueOperatorArray[0] = result.toString()
+                valueOperatorArray.splice(1, 2)
+                valueOperatorArray.push()
+                arrayLength = valueOperatorArray.length
+            }
+            if (valueOperatorArray[1] === "*") {
+                let result = Number(valueOperatorArray[0]) * Number(valueOperatorArray[2])
+                valueOperatorArray[0] = result.toString()
+                valueOperatorArray.splice(1, 2)
+                valueOperatorArray.push()
+                arrayLength = valueOperatorArray.length
+            }
+            if (valueOperatorArray[1] === "/") {
+                let result = Number(valueOperatorArray[0]) / Number(valueOperatorArray[2])
+                valueOperatorArray[0] = result.toString()
+                valueOperatorArray.splice(1, 2)
+                valueOperatorArray.push()
+                arrayLength = valueOperatorArray.length
             }
         }
         document.getElementById('currentNumber').innerHTML = valueOperatorArray
     }
 }
-
-
-
-// equalsSign.addEventListener("click", function () {
-//     if (firstValue != undefined, secondValue != undefined) {
-//         if (operator === "+") {
-//             result = Number(firstValue) + Number(secondValue)
-//             document.getElementById('currentNumber').innerHTML = ""
-//             document.getElementById('currentNumber').innerHTML = result
-//         }
-//         else if (operator === "-") {
-//             result = Number(firstValue) - Number(secondValue)
-//             document.getElementById('currentNumber').innerHTML = ""
-//             document.getElementById('currentNumber').innerHTML = result
-//         }
-//         else if (operator === "*") {
-//             result = Number(firstValue) * Number(secondValue)
-//             document.getElementById('currentNumber').innerHTML = ""
-//             document.getElementById('currentNumber').innerHTML = result
-//         }
-//         else if (operator === "/") {
-//             result = Number(firstValue) / Number(secondValue)
-//             document.getElementById('currentNumber').innerHTML = ""
-//             document.getElementById('currentNumber').innerHTML = result
-//         }
-//     }
-// })
 
 clearSign.addEventListener("click", function () {
     document.getElementById('currentNumber').innerHTML = ""
