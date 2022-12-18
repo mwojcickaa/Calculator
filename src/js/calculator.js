@@ -49,6 +49,9 @@ function myValueAndOperator(value) {
                 valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
             }
         }
+        else if (value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
+            alert("Nie można dzielić przez 0!")
+        }
         else {
             if (value === "." && isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
                 valueOperatorArray.push("0" + value)
@@ -103,9 +106,16 @@ function myResult() {
                 valueOperatorArray.splice((valueOperatorArray.indexOf("*") - 1), 3, convertedToString)
             }
             else if (valueOperatorArray.includes("/")) {
+                // if (value === 0) {
+                //     alert("Nie można dzielić przez 0!")
+                // }
                 let result = Number(valueOperatorArray[valueOperatorArray.indexOf("/") - 1]) / Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1])
                 let convertedToString = result.toString()
+
                 valueOperatorArray.splice((valueOperatorArray.indexOf("/") - 1), 3, convertedToString)
+                if (Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1]) === 0) {
+                    console.log("98")
+                }
             }
             else if (valueOperatorArray[1] === "+") {
                 let result = Number(valueOperatorArray[0]) + Number(valueOperatorArray[2])
