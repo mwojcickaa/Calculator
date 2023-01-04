@@ -3,7 +3,7 @@
 
 This is a simple calculator that supports basic mathematical operations such as: addition, subtraction, multiplication and division.
 
-### [Calculator link](mwojcickaa-calculator.netlify.app "Calculator")
+### [Calculator link](https://mwojcickaa-calculator.netlify.app/ "Calculator")
 
 
 ## Technologies
