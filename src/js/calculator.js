@@ -17,51 +17,55 @@ const divisionSign = document.getElementById('operator-division')
 const clearSign = document.getElementById('clear')
 const equalsSign = document.getElementById('operator-equals')
 
-let firstValue
-let secondValue
-let operator
-let result
+const currentNumberP = document.getElementById('currentNumber')
+const resultDiv = document.getElementById('result')
 
 let valueOperatorArray = []
 function myValueAndOperator(value) {
-    if (typeof value === "string" && value != ".") {
-        if (isNaN(valueOperatorArray[0])) {
-            valueOperatorArray[0] = "0"
-            valueOperatorArray[1] = value
-        }
-        if (isNaN(valueOperatorArray[valueOperatorArray.length - 1])) {
-            valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
-            valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
-        }
-        if (valueOperatorArray[valueOperatorArray.length - 1].includes(".") && valueOperatorArray[valueOperatorArray.length - 1].slice(-1) === ".") {
-            let str = document.getElementById('currentNumber').innerHTML
-            let res = valueOperatorArray[valueOperatorArray.length - 1].replace(".", "")
-            valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
-            valueOperatorArray.push(res)
-        }
-        valueOperatorArray.push(value)
-    }
-    else {
-        if (!isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
-            if (!(value === "." && valueOperatorArray[valueOperatorArray.length - 1].includes("."))) {
-                let convertedValue = value.toString()
-                let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
-                valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
+    const currentNumberWidthP = currentNumberP.offsetWidth
+    const resultDivWidth = resultDiv.clientWidth
+    if (currentNumberWidthP < resultDivWidth) {
+        if (typeof value === "string" && value != ".") {
+            if (isNaN(valueOperatorArray[0])) {
+                valueOperatorArray[0] = "0"
+                valueOperatorArray[1] = value
             }
-        }
-        else if (value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
-            alert("Nie można dzielić przez 0!")
+            if (isNaN(valueOperatorArray[valueOperatorArray.length - 1])) {
+                valueOperatorArray.splice(valueOperatorArray.length - 1, 1, value)
+                valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
+            }
+            if (valueOperatorArray[valueOperatorArray.length - 1].includes(".") && valueOperatorArray[valueOperatorArray.length - 1].slice(-1) === ".") {
+                let str = document.getElementById('currentNumber').innerHTML
+                let res = valueOperatorArray[valueOperatorArray.length - 1].replace(".", "")
+                valueOperatorArray.splice(valueOperatorArray.length - 1, 1,)
+                valueOperatorArray.push(res)
+            }
+            valueOperatorArray.push(value)
         }
         else {
-            if (value === "." && isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
-                valueOperatorArray.push("0" + value)
+            if (!isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
+                if (!(value === "." && valueOperatorArray[valueOperatorArray.length - 1].includes("."))) {
+                    let convertedValue = value.toString()
+                    let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
+                    valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
+                }
+            }
+            else if (value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
+                alert("Nie można dzielić przez 0!")
             }
             else {
-                let text = value.toString()
-                let convertedValue = value.toString()
-                valueOperatorArray.push(convertedValue)
+                if (value === "." && isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
+                    valueOperatorArray.push("0" + value)
+                }
+                else {
+                    let text = value.toString()
+                    let convertedValue = value.toString()
+                    valueOperatorArray.push(convertedValue)
+                }
             }
         }
+    } else {
+        alert("Wykorzystano maksymalną liczbę znaków. Proszę wyczyścić kalkulator klikając przycisk C")
     }
     let currentNumber = valueOperatorArray.join('')
     document.getElementById('currentNumber').innerHTML = currentNumber
@@ -106,15 +110,11 @@ function myResult() {
                 valueOperatorArray.splice((valueOperatorArray.indexOf("*") - 1), 3, convertedToString)
             }
             else if (valueOperatorArray.includes("/")) {
-                // if (value === 0) {
-                //     alert("Nie można dzielić przez 0!")
-                // }
                 let result = Number(valueOperatorArray[valueOperatorArray.indexOf("/") - 1]) / Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1])
                 let convertedToString = result.toString()
 
                 valueOperatorArray.splice((valueOperatorArray.indexOf("/") - 1), 3, convertedToString)
                 if (Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1]) === 0) {
-                    console.log("98")
                 }
             }
             else if (valueOperatorArray[1] === "+") {
