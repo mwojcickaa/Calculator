@@ -13,4 +13,4 @@ This is a simple calculator that supports basic mathematical operations such as:
 
 ## Screenshot
 
-![Screenshot] (https://raw.githubusercontent.com/mwojcickaa/Calculator/development/src/img/kalkulator.PNG "Screenshot")
+![Screenshot](https://raw.githubusercontent.com/mwojcickaa/Calculator/development/src/img/kalkulator.PNG "Screenshot")
