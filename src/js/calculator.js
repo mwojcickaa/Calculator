@@ -60,7 +60,6 @@ function myValueAndOperator(value) {
                 }
             }
             else if (valueOperatorArray.length != 0 && value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
-                console.log("1")
                 showSnackbar("Nie można dzielić przez 0!")
                 return
             }
@@ -142,7 +141,6 @@ function myResult() {
                 valueOperatorArray.splice(1, 2)
             }
             arrayLength = valueOperatorArray.length
-            console.log(valueOperatorArray)
         }
         document.getElementById('currentNumber').innerHTML = valueOperatorArray
     }
