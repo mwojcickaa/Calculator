@@ -180,3 +180,46 @@ html {
     color: white;
     border-radius: 5px;
 }
+#snackbar {
+    height: 60px;
+    width: 330px;
+    background-color: #302e2b;
+    position: fixed;
+    bottom: 0;
+    border-radius: 5px;
+    color: white;
+    padding-left: 15px;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    display: none;
+}
+@keyframes moving {
+    from {bottom: -90px}
+    to {bottom: 0px}
+}
+@keyframes movingBack {
+    from {bottom: 0px}
+    to {bottom: -90px;}
+}
+#snackbar.show {
+    visibility: visible;
+    animation-name: moving;
+    animation-duration: 500ms;
+    display: flex;
+}
+#snackbar.hide {
+    animation-name: movingBack;
+    animation-duration: 500ms;
+    display: flex;
+    visibility: hidden;
+    transition-property: visibility;
+    transition-delay: 500ms;
+}
+#snackbar h5 {
+    margin-right: 2px;
+    font-weight: 500;
+    padding-left: 10px;
+    color: white;
+    
+}

@@ -20,6 +20,15 @@ const equalsSign = document.getElementById('operator-equals')
 const currentNumberP = document.getElementById('currentNumber')
 const resultDiv = document.getElementById('result')
 
+function showSnackbar(snackbarText) {
+    document.querySelector('#snackbar').className = "show"
+    document.querySelector('h5').innerHTML = snackbarText
+    setTimeout(function () {
+        document.querySelector('#snackbar').className = "hide"
+    }, 3000)
+
+}
+
 let valueOperatorArray = []
 function myValueAndOperator(value) {
     const currentNumberWidthP = currentNumberP.offsetWidth
@@ -50,8 +59,10 @@ function myValueAndOperator(value) {
                     valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
                 }
             }
-            else if (value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
-                alert("Nie można dzielić przez 0!")
+            else if (valueOperatorArray.length != 0 && value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
+                console.log("1")
+                showSnackbar("Nie można dzielić przez 0!")
+                return
             }
             else {
                 if (value === "." && isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
@@ -65,7 +76,7 @@ function myValueAndOperator(value) {
             }
         }
     } else {
-        alert("Wykorzystano maksymalną liczbę znaków. Proszę wyczyścić kalkulator klikając przycisk C")
+        showSnackbar("Wykorzystano maksymalną liczbę znaków. <br> Proszę wyczyścić kalkulator klikając przycisk C.")
     }
     let currentNumber = valueOperatorArray.join('')
     document.getElementById('currentNumber').innerHTML = currentNumber
@@ -89,7 +100,7 @@ buttonNumberEight.addEventListener("click", function () { myValueAndOperator(8) 
 
 buttonNumberNine.addEventListener("click", function () { myValueAndOperator(9) })
 
-buttonNumberZero.addEventListener("click", function () { myValueAndOperator(0) },)
+buttonNumberZero.addEventListener("click", function () { myValueAndOperator(0) })
 
 buttonDot.addEventListener("click", function () { myValueAndOperator(".") })
 
@@ -104,18 +115,21 @@ function myResult() {
     let arrayLength = valueOperatorArray.length
     if (arrayLength != 0) {
         while (arrayLength != 1) {
-            if (valueOperatorArray.includes("*")) {
+            if (isNaN(valueOperatorArray[valueOperatorArray.length - 1])) {
+                let result = Number(valueOperatorArray[valueOperatorArray.length - 2])
+                let convertedToString = result.toString()
+                valueOperatorArray.splice((valueOperatorArray.length - 1), 1)
+            }
+            if (valueOperatorArray.includes("/")) {
+                let result = Number(valueOperatorArray[valueOperatorArray.indexOf("/") - 1]) / Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1])
+                let convertedToString = result.toString()
+                valueOperatorArray.splice((valueOperatorArray.indexOf("/") - 1), 3, convertedToString)
+
+            }
+            else if (valueOperatorArray.includes("*")) {
                 let result = Number(valueOperatorArray[valueOperatorArray.indexOf("*") - 1]) * Number(valueOperatorArray[valueOperatorArray.indexOf("*") + 1])
                 let convertedToString = result.toString()
                 valueOperatorArray.splice((valueOperatorArray.indexOf("*") - 1), 3, convertedToString)
-            }
-            else if (valueOperatorArray.includes("/")) {
-                let result = Number(valueOperatorArray[valueOperatorArray.indexOf("/") - 1]) / Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1])
-                let convertedToString = result.toString()
-
-                valueOperatorArray.splice((valueOperatorArray.indexOf("/") - 1), 3, convertedToString)
-                if (Number(valueOperatorArray[valueOperatorArray.indexOf("/") + 1]) === 0) {
-                }
             }
             else if (valueOperatorArray[1] === "+") {
                 let result = Number(valueOperatorArray[0]) + Number(valueOperatorArray[2])
@@ -128,6 +142,7 @@ function myResult() {
                 valueOperatorArray.splice(1, 2)
             }
             arrayLength = valueOperatorArray.length
+            console.log(valueOperatorArray)
         }
         document.getElementById('currentNumber').innerHTML = valueOperatorArray
     }
