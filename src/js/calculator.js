@@ -54,9 +54,14 @@ function myValueAndOperator(value) {
         else {
             if (!isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
                 if (!(value === "." && valueOperatorArray[valueOperatorArray.length - 1].includes("."))) {
-                    let convertedValue = value.toString()
-                    let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
-                    valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
+                    if (valueOperatorArray[valueOperatorArray.length - 1] === "0") {
+                        valueOperatorArray[valueOperatorArray.length - 1] = value
+                    }
+                    else {
+                        let convertedValue = value.toString()
+                        let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
+                        valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
+                    }
                 }
             }
             else if (valueOperatorArray.length != 0 && value === 0 && valueOperatorArray[valueOperatorArray.length - 1].includes("/")) {
