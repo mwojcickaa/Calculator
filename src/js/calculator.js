@@ -54,12 +54,12 @@ function myValueAndOperator(value) {
         else {
             if (!isNaN(Number(valueOperatorArray[valueOperatorArray.length - 1]))) {
                 if (!(value === "." && valueOperatorArray[valueOperatorArray.length - 1].includes("."))) {
+                    let convertedValue = value.toString()
                     if (valueOperatorArray[valueOperatorArray.length - 1] === "0") {
-                        valueOperatorArray[valueOperatorArray.length - 1] = value
+                        valueOperatorArray[valueOperatorArray.length - 1] = convertedValue
                     }
                     else {
-                        let convertedValue = value.toString()
-                        let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + value.toString()
+                        let lastValueInArray = valueOperatorArray[valueOperatorArray.length - 1] + convertedValue
                         valueOperatorArray[valueOperatorArray.length - 1] = lastValueInArray
                     }
                 }
