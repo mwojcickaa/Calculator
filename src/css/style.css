@@ -78,7 +78,7 @@ html {
 #number1 {
     width: 55px;
     height: 55px;
-    font-size: 15px;
+    font-size: 20px;
     border: solid 0.5px #000;
     background-color: #fff;
     color: #000;
@@ -289,6 +289,7 @@ html {
 #clear {
     width: 55px;
     height: 55px;
+    font-size: 20px;
     border: solid 0.5px #000;
     background-color: #fff;
     color: #000;
