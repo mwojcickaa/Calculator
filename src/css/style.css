@@ -73,6 +73,8 @@ html {
     line-height: 15px;
     color: #000;
     font-family: 'Quicksand', sans-serif;
+    position: relative;
+    top: 5px;
 }
 
 #number1 {
@@ -87,6 +89,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #number2 {
@@ -101,6 +105,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #number3 {
@@ -115,6 +121,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #number4 {
@@ -129,6 +137,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+   
 }
 
 #number5 {
@@ -143,6 +153,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+   
 }
 
 #number6 {
@@ -157,6 +169,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+
 }
 
 #number7 {
@@ -170,8 +184,9 @@ html {
     margin-right: 10px;
     border-radius: 10px;
     font-weight: 600;
-    margin-top: 20px;
+    position: relative;
     box-shadow: 3px 4px;
+    margin-top: 20px;
 }
 
 #number8 {
@@ -185,8 +200,9 @@ html {
     margin-right: 10px;
     border-radius: 10px;
     font-weight: 600;
-    margin-top: 20px;
+    position: relative;
     box-shadow: 3px 4px;
+    margin-top: 20px;
 }
 
 #number9 {
@@ -200,8 +216,9 @@ html {
     margin-right: 10px;
     border-radius: 10px;
     font-weight: 600;
-    margin-top: 20px;
+    position: relative;
     box-shadow: 3px 4px;
+    margin-top: 20px;
 }
 
 #number0 {
@@ -216,6 +233,8 @@ html {
     font-weight: 600;
     box-shadow: 3px 4px;
     margin-right: 10px;
+    position: relative;
+    
 }
 
 #operator-division {
@@ -229,6 +248,7 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
     margin-top: 20px;
 }
 
@@ -243,6 +263,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+   
 }
 
 #operator-subtraction {
@@ -256,6 +278,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #operator-addition {
@@ -270,6 +294,8 @@ html {
     font-weight: 600;
     box-shadow: 3px 4px;
     margin-right: 10px;
+    position: relative;
+    
 }
 
 #dot {
@@ -284,6 +310,8 @@ html {
     margin-right: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+   
 }
 
 #clear {
@@ -297,6 +325,8 @@ html {
     border-radius: 10px;
     font-weight: 600;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #operator-equals {
@@ -310,6 +340,8 @@ html {
     color: #000;
     font-family: 'Quicksand', sans-serif;
     box-shadow: 3px 4px;
+    position: relative;
+    
 }
 
 #snackbar {
@@ -329,7 +361,9 @@ html {
 }
 
 .button:active {
-    box-shadow: 3px 3px !important;
+    box-shadow: 1px 2px !important;
+    top: 2px !important;
+    left:2px;
 }
 
 @keyframes moving {

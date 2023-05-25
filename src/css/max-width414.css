@@ -10,10 +10,15 @@
     }
     .button:active {
         box-shadow: 1px 1px !important;
+        top: 1px !important;
+        left:1px;
     }
     .result {
         width: 180px;
         font-size: 20px;
+    }
+    #currentNumber {
+        top: 0px;
     }
     #snackbar {
         height: 40px;
