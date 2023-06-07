@@ -26,7 +26,6 @@ function showSnackbar(snackbarText) {
     setTimeout(function () {
         document.querySelector('#snackbar').className = "hide"
     }, 3000)
-
 }
 
 let valueOperatorArray = []

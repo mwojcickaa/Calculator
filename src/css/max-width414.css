@@ -1,17 +1,17 @@
 @media only screen and (max-width: 414px) {
     .calculator {
         width: 200px;
-        height: 350px;
+        height: 320px;
     }
     .buttons {
         width: 200px;
-        height: 275px;
-        margin-top: -40px;
+        height: 250px;
+        margin-top: -45px;
     }
     .button:active {
-        box-shadow: 1px 1px !important;
-        top: 1px !important;
-        left:1px;
+        box-shadow: 1px 1px;
+        top: 1px;
+        left: 1px;
     }
     .result {
         width: 180px;
@@ -25,120 +25,18 @@
         width: 230px;
         font-size: 10px;
     }
-    #number1 {
+
+    .button {
         width: 35px;
         height: 35px;
         font-size: 15px;
         box-shadow: 1px 2px;
         border-radius: 6px;
+        margin-top: 5px;
     }
-    #number2 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number3 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number4 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number5 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number6 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number7 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number8 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number9 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #number0 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #operator-division {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #operator-multiplication {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #operator-subtraction {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #operator-addition {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #dot {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #clear { 
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        box-shadow: 1px 2px;
-        border-radius: 6px;
-    }
-    #operator-equals {
-        width: 180px;
+
+    .equals {
+        width: 167px;
         height: 40px;
         font-size: 18px;
         box-shadow: 1px 2px;

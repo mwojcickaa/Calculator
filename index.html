@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kalkulator</title>
+        <meta name="description" content="Potrzebujesz pomocy z obliczeniem czegoś? Skorzystaj z prostego kalkulatora,
+        który Ci to ułatwi! Posiada funkcje dodawania, odejmowania, mnożenia oraz dzielenia więcej niż dwóch wartości.
+        Sprawdź!">
+        <meta name="keywords" content="kalkulator, oblicz">
+        <link rel="stylesheet" href="src/css/style.css"/>
+        <link rel="alternative stylesheet" href="src/css/max-width414.css"/>
+        <link rel="preload" href="src/css/font.css" type="text/css"/>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator</title>
-    <meta name="description" content="Potrzebujesz pomocy z obliczeniem czegoś? Skorzystaj z prostego kalkulatora,
-    który Ci to ułatwi! Posiada funkcje dodawania, odejmowania, mnożenia oraz dzielenia więcej niż dwóch wartości.
-    Sprawdź!">
-    <meta name="keywords" content="kalkulator, oblicz">
-    <link rel="stylesheet" href="src/css/style.css" />
-    <link rel="stylesheet" href="src/css/max-width414.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet"/>
-</head>
-
-<body>
-    <div class="main-calculator">
-            <div class="calculator">
-                <div class="panel">
-                    <div class="result" id="result">
-                        <p id="currentNumber"></p>
-                    </div>
-                    <div class="buttons">
-                        <button class="button" id="number7">7</button>
-                        <button class="button" id="number8">8</button>
-                        <button class="button" id="number9">9</button>
-                        <button class="button" id="operator-division">/</button>
-                        <button class="button" id="number4">4</button>
-                        <button class="button" id="number5">5</button>
-                        <button class="button" id="number6">6</button>
-                        <button class="button" id="operator-multiplication">*</button>
-                        <button class="button" id="number1">1</button>
-                        <button class="button" id="number2">2</button>
-                        <button class="button" id="number3">3</button>
-                        <button class="button" id="operator-subtraction">-</button>
-                        <button class="button" id="dot">.</button>
-                        <button class="button" id="number0">0</button>
-                        <button class="button" id="operator-addition">+</button>
-                        <button class="button" id="clear">C</button>
-                        <button class="button" id="operator-equals">=</button>
+    <body>
+        <div class="main-calculator">
+                <div class="calculator">
+                    <div class="panel">
+                        <div class="result" id="result">
+                            <p id="currentNumber"></p>
+                        </div>
+                        <div class="buttons">
+                            <button class="button" id="number7" accesskey="7">7</button>
+                            <button class="button" id="number8" accesskey="8">8</button>
+                            <button class="button" id="number9" accesskey="9">9</button>
+                            <button class="button" id="operator-division" accesskey="/">/</button>
+                            <button class="button" id="number4" accesskey="4">4</button>
+                            <button class="button" id="number5" accesskey="5">5</button>
+                            <button class="button" id="number6" accesskey="6">6</button>
+                            <button class="button" id="operator-multiplication" accesskey="*">*</button>
+                            <button class="button" id="number1" accesskey="1">1</button>
+                            <button class="button" id="number2" accesskey="2">2</button>
+                            <button class="button" id="number3" accesskey="3">3</button>
+                            <button class="button" id="operator-subtraction" accesskey="-">-</button>
+                            <button class="button" id="dot" accesskey=".">.</button>
+                            <button class="button" id="number0" accesskey="0">0</button>
+                            <button class="button" id="operator-addition" accesskey="+">+</button>
+                            <button class="button" id="clear" accesskey="C">C</button>
+                            <button class="button equals" id="operator-equals" accesskey="=">=</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- <img alt="" src="src/img/svg.png"> -->
+        <div aria-label="Wyświetlono komunikat z błędem kalkulatora. Proszę kliknąć przycisk C aby usunąć poprzednie cyfry." id="snackbar">
+            <h5></h5>
         </div>
-    <div id="snackbar">
-        <h5></h5>
-    </div>
-    <script type="module" src="src/js/calculator.js"></script>
-</body>
-
-
+        <script src="src/js/calculator.js"></script>
+        <script type="module"></script>
+    </body>
 </html>
