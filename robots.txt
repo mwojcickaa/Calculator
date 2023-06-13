@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kalkulator-mwojcickaa.netlify.app/sitemap.xml
